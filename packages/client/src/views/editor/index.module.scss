@@ -1,0 +1,79 @@
+.wrapper {
+  min-width: 1200px;
+  height: 100vh;
+  user-select: none;
+
+  // antd 样式重置
+  :global {
+    .ant-switch-checked {
+      background-color: var(--editor-primary-color);
+    }
+
+    button {
+      span {
+        color: var(--editor-text-color-second);
+      }
+    }
+
+    .ant-btn-primary {
+      border-color: var(--editor-primary-color);
+      background-color: var(--editor-primary-color);
+
+      span {
+        color: #fff;
+      }
+    }
+
+    .ant-btn-link {
+      font-size: var(--editor-text-font-size-helper);
+      span {
+        color: inherit;
+      }
+    }
+
+    .ant-radio-wrapper {
+      color: var(--editor-text-color-second);
+    }
+  }
+
+  > main {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    height: calc(100% - 60px);
+    box-sizing: border-box;
+    background: var(--editor-main-bgcolor);
+    overflow: hidden;
+
+    .pannelWrapper {
+      position: absolute;
+      top: 0;
+      z-index: 120;
+      width: 360px;
+      height: 100%;
+      transition: all ease-in-out 0.3s;
+      background-color: var(--editor-pannel-bgcolor);
+
+      &.left {
+        left: 0;
+        box-shadow: var(--editor-page-component-pannel-boxshadow);
+        transform: translateX(-100%);
+
+        &.isVisible {
+          transform: translateX(0);
+        }
+      }
+
+      &.right {
+        right: 0;
+        box-shadow: var(--editor-page-component-eidtor-pannel-boxshadow);
+        transform: translateX(100%);
+
+        &.isVisible {
+          transform: translateX(0);
+        }
+      }
+    }
+  }
+}

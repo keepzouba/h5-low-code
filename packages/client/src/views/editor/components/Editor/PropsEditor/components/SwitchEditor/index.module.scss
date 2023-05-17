@@ -1,0 +1,16 @@
+.wrapper {
+  display: flex;
+  justify-content: space-between;
+  font-size: var(--editor-text-font-size-helper);
+  padding: var(--editor-padding-vertical-medium) 0;
+
+  > span {
+    color: var(--editor-text-color-primary);
+    display: flex;
+    align-items: center;
+
+    .desc {
+      color: var(--editor-text-color-second);
+    }
+  }
+}

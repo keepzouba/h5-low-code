@@ -1,0 +1,158 @@
+.wrapper {
+  position: relative;
+  width: calc(100% - 720px);
+  height: 100%;
+  padding: var(--editor-padding-vertical) var(--editor-padding-horizontal);
+  overflow: auto;
+  scroll-behavior: smooth;
+
+  &.isPreview {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 140;
+    width: 100vw;
+    height: 100vh;
+    padding: 0;
+    background: var(--editor-main-bgcolor);
+  }
+
+  .closePreviewWrapper {
+    position: absolute;
+    top: 2vh;
+    right: 4vw;
+    font-size: 1.4rem;
+    cursor: pointer;
+    visibility: hidden;
+    color: var(--editor-text-color-second);
+
+    &.isPreview {
+      visibility: visible;
+    }
+  }
+
+  .contentWrapper {
+    position: relative;
+    z-index: 110;
+    width: 375px;
+    min-height: 100%;
+    margin: 0 auto;
+    background-color: var(--editor-pannel-bgcolor);
+    box-shadow: var(--editor-page-preview-pannel-boxshadow);
+    border-radius: 2px;
+
+    &.isPreview {
+      overflow: auto;
+      min-height: 96vh;
+      height: 96vh;
+      margin-top: 2vh;
+    }
+
+    .componentWrapper {
+      position: relative;
+      width: 100%;
+
+      &.isEdit {
+        border: 1px dashed transparent;
+      }
+
+      &.isActive {
+        border-color: var(--editor-primary-color);
+
+        .toolboxWrapper {
+          display: initial;
+        }
+      }
+
+      .componentCoverWrapper {
+        position: absolute;
+        left: 0;
+        top: 0;
+        z-index: 10000;
+        width: 100%;
+        height: 100%;
+
+        .action {
+          position: absolute;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          background-color: #fff;
+          padding: 4px;
+          border-radius: 50%;
+          z-index: 1000;
+          cursor: pointer;
+          box-shadow: var(--editor-page-preview-pannel-boxshadow);
+          visibility: hidden;
+
+          &:last-of-type {
+            top: 100%;
+          }
+        }
+
+        &:hover {
+          // border: 1px dashed #ddd;
+          .action {
+            visibility: visible;
+          }
+        }
+      }
+
+      .toolboxWrapper {
+        display: none;
+        position: absolute;
+        top: 0%;
+        right: 0;
+        transform: translateX(100%);
+        padding: 0 8px;
+        transition: opacity 0.1s ease-out;
+
+        > ul {
+          margin: 0;
+
+          > li {
+            cursor: pointer;
+
+            background-color: #fff;
+            border-radius: 0px;
+
+            .dividerWrapper {
+              margin: 0;
+            }
+
+            > span {
+              padding: var(--editor-padding-horizontal-small)
+                var(--editor-padding-vertical-small);
+            }
+
+            + li {
+              margin-top: var(--editor-padding-vertical-small);
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .hoverBgWrapper {
+    position: absolute;
+    left: 0;
+    width: 100%;
+    background-color: var(--editor-page-preview-pannel-hover-bgcolor);
+
+    .action {
+      position: absolute;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background-color: #fff;
+      padding: 4px;
+      border-radius: 50%;
+      z-index: 1000;
+      cursor: pointer;
+      box-shadow: var(--editor-page-preview-pannel-boxshadow);
+
+      &:last-of-type {
+        top: 100%;
+      }
+    }
+  }
+}

@@ -1,0 +1,39 @@
+.wrapper {
+  position: relative;
+  z-index: 130;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 60px;
+  background-color: var(--editor-pannel-bgcolor);
+  box-shadow: var(--editor-header-box-shadow);
+  padding: var(--editor-padding-horizontal);
+  color: var(--editor-text-color-primary);
+
+  .logo {
+    color: var(--editor-text-color-primary);
+    font-size: 18px;
+    font-weight: 700;
+    font-style: italic;
+  }
+
+  ul {
+    display: inline-flex;
+    margin: 0;
+
+    li {
+      font-size: 1.6em;
+      cursor: pointer;
+
+      + li {
+        margin-left: 0.5em;
+      }
+    }
+  }
+
+  div {
+    button + button {
+      margin-left: 8px;
+    }
+  }
+}
